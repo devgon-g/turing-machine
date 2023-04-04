@@ -1,0 +1,13 @@
+{
+  "name": "turing-machine",
+  "version": "1.0.0",
+  "description": "튜링머신이란걸 알고 그냥 구현해보고 싶어져 만들어봄!",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "t1": "node src/app.js 1234 5678"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
