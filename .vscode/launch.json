@@ -12,7 +12,37 @@
                 "<node_internals>/**"
             ],
             "program": "${workspaceFolder}/src/app.js",
-            "args": ["abcd", "efgh"]
+            "args": ["resource/src.tp", "efgh"]
+        },
+        {
+          "type": "node",
+          "request": "launch",
+          "name": "Jest: current file",
+          //"env": { "NODE_ENV": "test" },
+          "program": "${workspaceFolder}/node_modules/.bin/jest",
+          "args": [
+            "--experimental-vm-modules", 
+            "${fileBasenameNoExtension}", 
+            "--config", 
+            "jest.config.js"],
+          "console": "integratedTerminal",
+          "disableOptimisticBPs": true,
+          "windows": {
+            "program": "${workspaceFolder}/node_modules/jest/bin/jest"
+          }
+        },
+        {
+            "name": "Debug Jest Tests",
+            "type": "node",
+            "request": "launch",
+            "runtimeArgs": [
+                "--experimental-vm-modules", 
+              "--inspect-brk",
+              "${workspaceRoot}/node_modules/jest/bin/jest.js",
+              "--runInBand"
+            ],
+            "console": "integratedTerminal",
+            "internalConsoleOptions": "neverOpen"
         }
     ]
 }

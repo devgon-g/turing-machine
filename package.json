@@ -3,11 +3,20 @@
   "version": "1.0.0",
   "description": "튜링머신이란걸 알고 그냥 구현해보고 싶어져 만들어봄!",
   "main": "index.js",
+  "type": "module",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "t1": "node src/app.js 1234 5678"
+    "test": "node --experimental-vm-modules node_modules/jest/bin/jest.js",
+    "t1": "node src/app.js resource/src.tp 5678"
   },
   "keywords": [],
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "devDependencies": {
+    "@babel/core": "^7.21.4",
+    "@babel/preset-env": "^7.21.4",
+    "@testing-library/react": "^14.0.0",
+    "babel-cli": "^6.26.0",
+    "babel-jest": "^29.5.0",
+    "jest": "^29.5.0"
+  }
 }

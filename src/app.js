@@ -1,11 +1,19 @@
-console.log('hello');
-console.log(process.argv);
+import { argv } from 'node:process';
+import { loadTapeFromFile } from './tape.js';
 
-const fs = require('fs');
-const tape = fs.readFileSync('resource/src.tp', 'utf-8').split('');
+console.log(argv);
+
+const tape = loadTapeFromFile(argv[2]);
 console.log(tape);
 
-const head = {
+const head = function (tape) {
+    return {
+        tape: tape,
+        cursor: 0,
+        get: function () { return this.tape[this.cursor] },
+        put: function (value) { this.tape[this.cursor] = value }
+    };
+}(tape);
 
-    
-}
+head.put('*');
+console.log(head.get());
