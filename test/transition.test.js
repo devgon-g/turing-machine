@@ -1,16 +1,17 @@
-import { Transitions, newTransition } from "../src/transition.js";
+import { newTransitions, newTransition } from "../src/transition.js";
 import { jest } from "@jest/globals";
 import Tape from "../src/tape.js";
 
 describe("how to use transitions", () => {
     test("initialize transitions", () => {
-      Transitions.add("1*1*R");
-      Transitions.add("1$2*R");
-      Transitions.add("2*1$R");
-      Transitions.add("2$2$R");
+      let transitions = newTransitions();
+      transitions.add("1*1*R");
+      transitions.add("1$2*R");
+      transitions.add("2*1$R");
+      transitions.add("2$2$R");
 
-      expect(Transitions.of(['0', '*'])).toBeUndefined();
-      expect(Transitions.of(['1', '*'])).toBeDefined();
+      expect(transitions.of(['0', '*'])).toBeUndefined();
+      expect(transitions.of(['1', '*'])).toBeDefined();
       
     });
 

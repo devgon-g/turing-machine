@@ -1,15 +1,16 @@
-//Sc, Vc -> Sn, Vn, D
 
-export const Transitions = {
-  map: new Map(),
-  add: function (conf) {
-    let tokens = conf.split("");
-    this.map.set(tokens.slice(0, 2).toString(), newTransition(tokens.slice(2)));
-  },
-  of: function (state) {
-    return this.map.get(state.toString());
-  },
-};
+export function newTransitions(){
+  return {
+    map: new Map(),
+    add: function (conf) {
+      let tokens = conf.split("");
+      this.map.set(tokens.slice(0, 2).toString(), newTransition(tokens.slice(2)));
+    },
+    of: function (state) {
+      return this.map.get(state.toString());
+    },
+  };
+}
 
 export function newTransition(conf) {
   return (tape) => {
@@ -22,4 +23,4 @@ export function newTransition(conf) {
   };
 }
 
-export default Transitions;
+export default newTransitions;
